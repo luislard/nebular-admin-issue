@@ -51,7 +51,7 @@ export const NB_CORE_PROVIDERS = [
         },
         register: {
           // ...
-          endpoint: '/api/auth/register',
+          endpoint: environment.api.endpoints.register,
         },
       }),
     ],
