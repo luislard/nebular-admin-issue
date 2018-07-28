@@ -4,6 +4,7 @@
     <body>
       <trans-unit id="login_title" datatype="html">
         <source>Sign In</source>
+        <target>Iniciar Sesión</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/@theme/components/auth/login/login.component.ts</context>
           <context context-type="linenumber">2</context>
@@ -13,6 +14,7 @@
         <source>
           Hello from ngx-admin sandbox project.
       </source>
+      <target>Hola desde el projecto de prueba de ngn-admin</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/pages/dashboard/dashboard.component.ts</context>
           <context context-type="linenumber">4</context>

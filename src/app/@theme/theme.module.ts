@@ -2,6 +2,8 @@ import { ModuleWithProviders, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgxLoginComponent } from './components/auth/login/login.component';
+import { NgxAuthBlockComponent } from './components/auth/auth-block/auth-block.component';
 
 import {
   NbActionsModule,
@@ -29,7 +31,7 @@ import {
   SwitcherComponent,
   LayoutDirectionSwitcherComponent,
   ThemeSwitcherComponent,
-  ThemeSwitcherListComponent,
+  ThemeSwitcherListComponent
 } from './components';
 import { CapitalizePipe, PluralPipe, RoundPipe, TimingPipe } from './pipes';
 import {
@@ -41,6 +43,7 @@ import {
 import { DEFAULT_THEME } from './styles/theme.default';
 import { COSMIC_THEME } from './styles/theme.cosmic';
 import { CORPORATE_THEME } from './styles/theme.corporate';
+import { RouterModule } from '../../../node_modules/@angular/router';
 
 const BASE_MODULES = [CommonModule, FormsModule, ReactiveFormsModule];
 
@@ -59,6 +62,7 @@ const NB_MODULES = [
   NbContextMenuModule,
   NgbModule,
   NbSecurityModule, // *nbIsGranted directive
+  RouterModule
 ];
 
 const COMPONENTS = [
@@ -74,6 +78,8 @@ const COMPONENTS = [
   SampleLayoutComponent,
   ThreeColumnsLayoutComponent,
   TwoColumnsLayoutComponent,
+  NgxLoginComponent,
+  NgxAuthBlockComponent
 ];
 
 const ENTRY_COMPONENTS = [

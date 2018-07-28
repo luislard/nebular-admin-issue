@@ -16,6 +16,6 @@ export const environment = {
     api: {
       ...environmentBase.api,
         schema: 'http://',
-        base: 'local.en.api.my-local-domain/',
+        base: 'local.es.api.my-local-domain/',
     }
 };
