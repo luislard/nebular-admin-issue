@@ -15,6 +15,6 @@ export const environment = {
     api: {
         ...environmentBase.api,
         schema: 'https://',
-        base: 'prod.api.my_domain.com',
+        base: 'staging.api.my_domain.com',
     },
 };

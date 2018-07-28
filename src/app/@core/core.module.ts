@@ -1,12 +1,14 @@
 import { ModuleWithProviders, NgModule, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NbAuthModule, NbDummyAuthStrategy } from '@nebular/auth';
+import { NbAuthModule, NbDummyAuthStrategy, NbPasswordAuthStrategy } from '@nebular/auth';
 import { NbSecurityModule, NbRoleProvider } from '@nebular/security';
 import { of as observableOf } from 'rxjs';
 
 import { throwIfAlreadyLoaded } from './module-import-guard';
 import { DataModule } from './data/data.module';
 import { AnalyticsService } from './utils/analytics.service';
+
+import { environment } from '../../environments/environment';
 
 const socialLinks = [
   {
@@ -33,14 +35,24 @@ export class NbSimpleRoleProvider extends NbRoleProvider {
   }
 }
 
+const baseEndpoint = environment.api.schema + environment.api.base;
+
 export const NB_CORE_PROVIDERS = [
   ...DataModule.forRoot().providers,
   ...NbAuthModule.forRoot({
 
     strategies: [
-      NbDummyAuthStrategy.setup({
+      NbPasswordAuthStrategy.setup({
         name: 'email',
-        delay: 3000,
+        baseEndpoint: baseEndpoint,
+        login: {
+          // ...
+          endpoint: environment.api.endpoints.check_login,
+        },
+        register: {
+          // ...
+          endpoint: '/api/auth/register',
+        },
       }),
     ],
     forms: {
@@ -75,7 +87,7 @@ export const NB_CORE_PROVIDERS = [
 
 @NgModule({
   imports: [
-    CommonModule,
+    CommonModule
   ],
   exports: [
     NbAuthModule,
