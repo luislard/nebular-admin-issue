@@ -35,7 +35,7 @@ export class NbSimpleRoleProvider extends NbRoleProvider {
   }
 }
 
-const baseEndpoint = environment.api.schema + environment.api.base;
+const baseEndpoint = environment.api.schema + environment.api.base + environment.api.version;
 
 export const NB_CORE_PROVIDERS = [
   ...DataModule.forRoot().providers,
